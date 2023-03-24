@@ -9,6 +9,8 @@ import Details from './components/Details';
 
 function App() {
 
+
+
   const fetchUrl = async()=>{
 
     try {
@@ -37,15 +39,15 @@ function App() {
 
   useEffect(() => {
     
-    
+    const init = JSON.parse(localStorage.getItem('detail')|| '') || {email:'',name:{title:'',first:'',last:''}};
+      setDetails(init);
     
   }, [])
   
   
  
-  const init = JSON.parse(localStorage.getItem('detail')|| '') || {email:'',name:{title:'',first:'',last:''}};
   
-  const [details,setDetails] = useState<{email:string,name:{title:string,first:string,last:string}}>(init);
+  const [details,setDetails] = useState<{email:string,name:{title:string,first:string,last:string}}>({email:'',name:{title:'',first:'',last:''}});
 
   return (
    
